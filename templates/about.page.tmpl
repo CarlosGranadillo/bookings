@@ -1,0 +1,20 @@
+{{template "base" .}}
+
+{{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>This is the ABOUT page</h1>
+                <p>Hello world bla bla...</p>
+                <p>First time pulling data from the handler into the template: {{index .StringMap "example"}}</p>
+                <p>
+                    {{if eq (index .StringMap "remote_ip") ""}}
+                        No remote IP found in session. Visit the <a href="/">home page</a> to store it in the session.
+                    {{else}}
+                        Remote IP found in session: {{index .StringMap "remote_ip"}}
+                    {{end}}
+                </p>
+            </div>
+        </div>
+    </div>
+{{end}}
